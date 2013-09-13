@@ -1,3 +1,9 @@
+.. image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=develop
+        :target: https://travis-ci.org/jonathaneunice/simplere
+
+.. image:: https://pypip.in/d/simplere/badge.png
+        :target: https://crate.io/packages/simplere/
+
 A simplified interface to Python's regular expression (``re``)
 string search that tries to eliminate steps and provide
 simpler access to results. As a bonus, also provides compatible way to
@@ -6,10 +12,8 @@ access Unix glob searches.
 Usage
 =====
 
-Python regular expressions are powerful, but the language's
-lack of an *en passant*
-(in passing)
-assignment requires a preparatory
+Python regular expressions are powerful, but the language's lack
+of an *en passant* (in passing) assignment requires a preparatory
 motion and then a test::
 
     import re
