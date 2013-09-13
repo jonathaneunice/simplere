@@ -1,7 +1,7 @@
-.. image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=develop
+.. image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=master
         :target: https://travis-ci.org/jonathaneunice/simplere
 
-.. image:: https://pypip.in/d/simplere/badge.png
+        .. image:: https://pypip.in/d/simplere/badge.png
         :target: https://crate.io/packages/simplere/
 
 A simplified interface to Python's regular expression (``re``)
