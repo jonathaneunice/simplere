@@ -11,7 +11,7 @@ def linelist(text):
 
 setup(
     name='simplere',
-    version='1.0.3',
+    version='1.0.5',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='Simpler, cleaner access to regular expressions. Globs too.',
@@ -21,7 +21,7 @@ setup(
     install_requires=['mementos'],
     tests_require = ['tox', 'pytest'],
     zip_safe = False,  # actually it is, but this apparently avoids setuptools hacks
-    keywords='re regex regular expression glob',
+    keywords='re regex regexp regular expression glob simple',
     classifiers=linelist("""
         Development Status :: 4 - Beta
         Operating System :: OS Independent
