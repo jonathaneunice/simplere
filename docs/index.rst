@@ -1,6 +1,10 @@
 
 
-| |version| |downloads| |supported-versions| |supported-implementations|
+| |travisci| |version| |downloads| |supported-versions| |supported-implementations|
+
+.. |travisci| image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=master
+    :alt: Travis CI build status
+    :target: https://travis-ci.org/jonathaneunice/simplere
 
 .. |version| image:: http://img.shields.io/pypi/v/simplere.png?style=flat
     :alt: PyPI Package latest release
