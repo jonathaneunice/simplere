@@ -12,15 +12,14 @@ _PY3 = sys.version_info[0] == 3
 if _PY3:
     basestring = str
 
-
 class ReMatch(object):
 
     """
     An easier-to-use proxy for regular expression match objects. Ideally this
     would be a subclass of the re module's match object, but their type
-    ``_sre.SRE_Match`` appears to be unsubclassable
+    :py:class:`_sre.SRE_Match` `appears to be unsubclassable
     <http://stackoverflow.com/questions/4835352/subclassing-matchobject-in-python>`_.
-    Thus, ReMatch is a proxy exposes the match object's numeric (positional) and
+    Thus, :py:class:`ReMatch` is a proxy exposes the match object's numeric (positional) and
     named groups through indices and attributes. If a named group has the same
     name as a match object method or property, it takes precedence. Either
     change the name of the match group or access the underlying property thus:
@@ -28,12 +27,21 @@ class ReMatch(object):
     """
 
     def __init__(self, match=None):
+        """
+        Create a new ReMatch.
+
+        :param self: 
+        :param match: Python ``re`` match object, if any.
+        :type match: _sre.SRE_Match or None
+        """
         self._match = match
         self._groupdict = None
 
     def _bool(self):
         """
         Return True if the match was successful, and False if it failed.
+
+        :param self:
         """
         return bool(self._match)
 

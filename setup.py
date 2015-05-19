@@ -7,11 +7,11 @@ def linelist(text):
     Returns each non-blank line in text enclosed in a list.
     """
     return [ l.strip() for l in text.strip().splitlines() if l.strip() ]
-    
+
 
 setup(
     name='simplere',
-    version='1.0.5',
+    version='1.0.6',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='Simpler, cleaner access to regular expressions. Globs too.',
@@ -33,6 +33,7 @@ setup(
         Programming Language :: Python :: 3
         Programming Language :: Python :: 3.2
         Programming Language :: Python :: 3.3
+        Programming Language :: Python :: 3.4
         Programming Language :: Python :: Implementation :: CPython
         Programming Language :: Python :: Implementation :: PyPy
         Topic :: Software Development :: Libraries :: Python Modules

@@ -1,8 +1,25 @@
-.. image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=master
-    :target: https://travis-ci.org/jonathaneunice/simplere
 
-.. image:: https://pypip.in/d/simplere/badge.png
-    :target: https://crate.io/packages/simplere/
+| |version| |downloads| |supported-versions| |supported-implementations|
+
+.. |version| image:: http://img.shields.io/pypi/v/simplere.png?style=flat
+    :alt: PyPI Package latest release
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |downloads| image:: http://img.shields.io/pypi/dm/simplere.png?style=flat
+    :alt: PyPI Package monthly downloads
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |wheel| image:: https://pypip.in/wheel/simplere/badge.png?style=flat
+    :alt: PyPI Wheel
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |supported-versions| image:: https://pypip.in/py_versions/simplere/badge.png?style=flat
+    :alt: Supported versions
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |supported-implementations| image:: https://pypip.in/implementation/simplere/badge.png?style=flat
+    :alt: Supported implementations
+    :target: https://pypi.python.org/pypi/simplere
 
 A simplified interface to Python's regular expression (``re``)
 string search that tries to eliminate steps and provide
@@ -17,7 +34,7 @@ of an *en passant* (in passing) assignment requires a preparatory
 motion and then a test::
 
     import re
-    
+
     match = re.search(pattern, some_string)
     if match:
         print match.group(1)

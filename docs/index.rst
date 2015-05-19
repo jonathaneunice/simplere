@@ -1,3 +1,27 @@
+
+
+| |version| |downloads| |supported-versions| |supported-implementations|
+
+.. |version| image:: http://img.shields.io/pypi/v/simplere.png?style=flat
+    :alt: PyPI Package latest release
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |downloads| image:: http://img.shields.io/pypi/dm/simplere.png?style=flat
+    :alt: PyPI Package monthly downloads
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |wheel| image:: https://pypip.in/wheel/simplere/badge.png?style=flat
+    :alt: PyPI Wheel
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |supported-versions| image:: https://pypip.in/py_versions/simplere/badge.png?style=flat
+    :alt: Supported versions
+    :target: https://pypi.python.org/pypi/simplere
+
+.. |supported-implementations| image:: https://pypip.in/implementation/simplere/badge.png?style=flat
+    :alt: Supported implementations
+    :target: https://pypi.python.org/pypi/simplere
+
 simplere
 ========
 
@@ -5,6 +29,9 @@ A simplified interface to Python's regular expression (``re``)
 string search that tries to eliminate steps and provide
 simpler access to results. As a bonus, also provides compatible way to
 access Unix glob searches.
+
+.. toctree::
+   :maxdepth: 3
 
 Usage
 =====
@@ -50,31 +77,29 @@ before a program's appropriate structure and best logical boundaries
 have been established.  One can always "back out" the condensing *en
 passant* operation in later production code, if desired.
 
-.. toctree::
-   :maxdepth: 2
 
 Re Objects
 ==========
 
-``Re`` objects are `memoized
-<http://en.wikipedia.org/wiki/Memoization>`_ for efficiency, so they compile their
-pattern just once, regardless of how many times they're mentioned in a
-program.
+``Re`` objects are `memoized <http://en.wikipedia.org/wiki/Memoization>`_
+for efficiency, so they compile their pattern just once, regardless of how
+many times they're mentioned in a program.
 
-Note that the ``in`` test turns the sense of the matching around (compared to
-the standard ``re`` module). It asks "is the given string *in*
-the set of items this pattern describes?" To be fancy, the
-``Re`` pattern is an intensionally
-defined set (namely "all strings matching the pattern"). This order often makes
-excellent sense whey you have a clear intent for the test. For example, "is the
-given string within the set of *all legitimate commands*?"
+Note that the ``in`` test turns the sense of the matching around (compared
+to the standard ``re`` module). It asks "is the given string *in* the set of
+items this pattern describes?" To be fancy, the ``Re`` pattern is an
+intensionally defined set (namely "all strings matching the pattern"). This
+order often makes excellent sense whey you have a clear intent for the test.
+For example, "is the given string within the set of *all legitimate
+commands*?"
 
-Second, the ``in`` test had the side effect of setting the underscore
-name ``_`` to the result. Python doesn't support *en passant* assignment--apparently,
-no matter how hard you try, or how much introspection you use. This makes it
-harder to both test and collect results in the same motion, even though that's
-often exactly appropriate. Collecting them in a class variable is a fallback
-strategy (see the *En Passant* section below for a slicker one).
+Second, the ``in`` test had the side effect of setting the underscore name
+``_`` to the result. Python doesn't support *en passant*
+assignment--apparently, no matter how hard you try, or how much
+introspection you use. This makes it harder to both test and collect results
+in the same motion, even though that's often exactly appropriate. Collecting
+them in a class variable is a fallback strategy (see the *En Passant*
+section below for a slicker one).
 
 If you prefer the more traditional ``re`` calls::
 
@@ -125,8 +150,8 @@ Regular expressions are wonderfully powerful, but sometimes the simpler `Unix gl
     else:
         raise ValueError('YES IT IS')
 
-En Passant, Under the Covers
-============================
+Under the Covers
+================
 
 ``ReMatch`` objects
 wrap Python's native``_sre.SRE_Match`` objects (the things that ``re``
@@ -151,11 +176,14 @@ on the fly to the pre-defined ``match`` object::
 If the ``re`` operation fails, the resulting object is guaranteed to have
 a ``False``-like Boolean value, so that it will fall through conditional tests.
 
-If you prefer the look of the less-than (``<``) or less-than-or-equal (``<=``),
-as indicators that ``match`` takes the value of the following function call, they
-are experimentally supported as aliases of the division operation (``/``).
-You may define your
-own match objects, and can use them on memoized ``Re`` objects too. Putting
+Options and Alternatives
+========================
+
+If you prefer the look of the less-than (``<``) or less-than-or-equal
+(``<=``), as indicators that ``match`` takes the value of the
+following function call, they are experimentally supported as aliases
+of the division operation (``/``).  You may define your own match
+objects, and can use them on memoized ``Re`` objects too. Putting
 a few of these optional things together::
 
     answer = Match()   # need to do this just once
@@ -166,17 +194,22 @@ a few of these optional things together::
 Notes
 =====
 
- *  Automated multi-version testing is managed with the wonderful
-    `pytest <http://pypi.python.org/pypi/pytest>`_
-    and `tox <http://pypi.python.org/pypi/tox>`_. ``simplere`` is
-    successfully packaged for, and tested against, all late-model versions of
-    Python: 2.6, 2.7, 3.2, and 3.3, as well as PyPy 2.1 (based on 2.7.3).
-    Travis-CI testing has also commenced.
+ *  Automated multi-version testing managed with the wonderful
+    `pytest <http://pypi.python.org/pypi/pytest>`_,
+    `pytest-cov <http://pypi.python.org/pypi/pytest>`_,
+    and `tox <http://pypi.python.org/pypi/tox>`_.
+    Successfully packaged for, and tested against, all late-model versions of
+    Python: 2.6, 2.7, 3.2, 3.3, 3.4, 3.5a4, as well as PyPy 2.5.1 (based on 2.7.9)
+    and PyPy3 2.4.0 (based on 3.2.5).
+    Test line coverage ~100%.
 
- *  ``simplere`` is one part of a larger effort to add intensional sets
-    to Python. The `intensional <http://pypi.python.org/pypi/intensional>`_
-    package contains a parallel implementation of ``Re``, among many other
-    things.
+ *  ``simplere`` is one part of a larger effort to explore extensions to
+    current Python idioms. Its partners include `intensional
+    <http://pypi.python.org/pypi/intensional>`_ (intensional sets, which
+    also contains a parallel implementation of ``Re``), `enpassant
+    <http://pypi.python.org/pypi/enpassant>`_ (more general *en passant*
+    assignment), and `withref <https://pypi.python.org/pypi/withref>`_ (an
+    alternate take on multi-level object dereferencing).
 
  *  The author, `Jonathan Eunice <mailto:jonathan.eunice@gmail.com>`_ or
     `@jeunice on Twitter <http://twitter.com/jeunice>`_
@@ -193,4 +226,7 @@ To ``easy_install`` under a specific Python version (3.3 in this example)::
 
     python3.3 -m easy_install --upgrade simplere
 
-(You may need to prefix these with "sudo " to authorize installation.)
+(You may need to prefix these with "sudo " to authorize installation. In
+environments without super-user privileges, you may want to use ``pip``'s
+``--user`` option, to install only for a single user, rather than
+system-wide.)
