@@ -11,7 +11,7 @@ def linelist(text):
 
 setup(
     name='simplere',
-    version='1.0.8',
+    version='1.0.9',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='Simpler, cleaner access to regular expressions. Globs too.',

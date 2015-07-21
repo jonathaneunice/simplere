@@ -1,5 +1,4 @@
 
-
 | |travisci| |version| |downloads| |supported-versions| |supported-implementations|
 
 .. |travisci| image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=master
@@ -14,20 +13,16 @@
     :alt: PyPI Package monthly downloads
     :target: https://pypi.python.org/pypi/simplere
 
-.. |wheel| image:: https://pypip.in/wheel/simplere/badge.png?style=flat
-    :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/simplere
-
-.. |supported-versions| image:: https://pypip.in/py_versions/simplere/badge.png?style=flat
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/simplere.svg
     :alt: Supported versions
     :target: https://pypi.python.org/pypi/simplere
 
-.. |supported-implementations| image:: https://pypip.in/implementation/simplere/badge.png?style=flat
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/simplere.svg
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/simplere
 
 A simplified interface to Python's regular expression (``re``)
-string search that tries to eliminate steps and provide
+string search. Eliminates steps and provides
 simpler access to results. As a bonus, also provides compatible way to
 access Unix glob searches.
 

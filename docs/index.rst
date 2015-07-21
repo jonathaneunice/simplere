@@ -14,15 +14,11 @@
     :alt: PyPI Package monthly downloads
     :target: https://pypi.python.org/pypi/simplere
 
-.. |wheel| image:: https://pypip.in/wheel/simplere/badge.png?style=flat
-    :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/simplere
-
-.. |supported-versions| image:: https://pypip.in/py_versions/simplere/badge.png?style=flat
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/simplere.svg
     :alt: Supported versions
     :target: https://pypi.python.org/pypi/simplere
 
-.. |supported-implementations| image:: https://pypip.in/implementation/simplere/badge.png?style=flat
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/simplere.svg
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/simplere
 
@@ -30,7 +26,7 @@ simplere
 ========
 
 A simplified interface to Python's regular expression (``re``)
-string search that tries to eliminate steps and provide
+string search. Eliminates steps and provides
 simpler access to results. As a bonus, also provides compatible way to
 access Unix glob searches.
 
@@ -203,7 +199,7 @@ Notes
     `pytest-cov <http://pypi.python.org/pypi/pytest>`_,
     and `tox <http://pypi.python.org/pypi/tox>`_.
     Successfully packaged for, and tested against, all late-model versions of
-    Python: 2.6, 2.7, 3.2, 3.3, 3.4, 3.5a4, as well as PyPy 2.5.1 (based on 2.7.9)
+    Python: 2.6, 2.7, 3.2, 3.3, 3.4, as well as PyPy 2.5.1 (based on 2.7.9)
     and PyPy3 2.4.0 (based on 3.2.5).
     Test line coverage ~100%.
 
@@ -230,7 +226,7 @@ To ``easy_install`` under a specific Python version (3.3 in this example)::
 
     python3.3 -m easy_install --upgrade simplere
 
-(You may need to prefix these with "sudo " to authorize installation. In
+(You may need to prefix these with `sudo` to authorize installation. In
 environments without super-user privileges, you may want to use ``pip``'s
 ``--user`` option, to install only for a single user, rather than
 system-wide.)
