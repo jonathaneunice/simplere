@@ -5,4 +5,10 @@ include pytest.ini
 include tox.ini
 recursive-include simplere *.py
 recursive-include test *.py
-
+include .gitignore
+include .hgignore
+include .travis.yml
+recursive-include docs *
+include requirements.txt
+include setup.cfg
+include setup.py
