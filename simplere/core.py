@@ -6,11 +6,30 @@ also simpler access to globs.
 from mementos import MementoMetaclass, with_metaclass
 import sys
 import re
-import fnmatch
+from fnmatch import fnmatch
+
 
 _PY3 = sys.version_info[0] == 3
+
 if _PY3:
-    basestring = str
+    basestring = unicode = str
+
+if sys.version_info[:2] < (3, 3):
+    def casefold(s):
+        return s.upper().lower()
+        # imperfect, but better than the simpler, more typical
+        # s.lower() with some Unicode charactrs
+else:
+    def casefold(s):
+        return s.casefold()
+
+
+def stringify(x):
+    return x if isinstance(x, basestring) else unicode(x)
+    # Dance around Python 2 and 3 differences, esp. str/unicode
+    # divide in py2. Note ``basetring`` and ``unicode`` are above
+    # defined to be ``str`` in py3
+
 
 class ReMatch(object):
 
@@ -30,7 +49,7 @@ class ReMatch(object):
         """
         Create a new ReMatch.
 
-        :param self: 
+        :param self:
         :param match: Python ``re`` match object, if any.
         :type match: _sre.SRE_Match or None
         """
@@ -77,24 +96,26 @@ class ReMatch(object):
         self._match = other._match if isinstance(other, ReMatch) else other
         self._groupdict = None
         return other
-        
+
     if _PY3:
         __truediv__ = __div__
-        
+
     __lt__ = __div__
     __le__ = __div__
 
-    
+
 Match = ReMatch     # define alias
 match = Match()     # instantiate global match instance
 
 function_type = type(lambda: True)   # define our own because not def'd in py26
+
 
 def is_function(obj):
     """
     Determines: Is obj a function?
     """
     return isinstance(obj, function_type)
+
 
 def regrouped(f):
     """
@@ -104,16 +125,17 @@ def regrouped(f):
     """
     if not hasattr(f, '__call__'):
         return f
-    
+
     def regrouped_fn(match):
         return f(ReMatch(match))
-    
+
     return regrouped_fn
+
 
 class Re(with_metaclass(MementoMetaclass, object)):
 
     # convenience copy of re flag constants
-    
+
     DEBUG      = re.DEBUG
     I          = re.I
     IGNORECASE = re.IGNORECASE
@@ -127,7 +149,7 @@ class Re(with_metaclass(MementoMetaclass, object)):
     UNICODE    = re.UNICODE
     X          = re.X
     VERBOSE    = re.VERBOSE
-    
+
     _ = None
 
     def __init__(self, pattern, flags=0):
@@ -136,10 +158,10 @@ class Re(with_metaclass(MementoMetaclass, object)):
         self.re = pattern if type(pattern).__name__ == 'SRE_Pattern' else re.compile(pattern, flags)
         self.groups     = self.re.groups
         self.groupindex = self.re.groupindex
-        
+
         # can't use isinstance() test on pattern because _sre objects are damn hard to
         # import or wrangle. Name test is best I know how to do.
-        
+
     def _regroup(self, m):
         """
         Given an _sre.SRE_Match object, create and return a corresponding
@@ -153,46 +175,71 @@ class Re(with_metaclass(MementoMetaclass, object)):
         if not isinstance(item, basestring):
              item = str(item)
         return self._regroup(self.re.search(item))
-    
+
     ### methods that return ReMatch objects
-    
+
     def search(self, *args, **kwargs):
         return self._regroup(self.re.search(*args, **kwargs))
 
     def match(self, *args, **kwargs):
         return self._regroup(self.re.match(*args, **kwargs))
-    
+
     def finditer(self, *args, **kwargs):
         for m in self.re.finditer(*args, **kwargs):
             yield self._regroup(m)
-    
+
     ### methods that don't need ReMatch objects
-      
+
     def findall(self, *args, **kwargs):
         return self.re.findall(*args, **kwargs)
-    
+
     def split(self, *args, **kwargs):
         return self.re.split(*args, **kwargs)
-    
+
     def sub(self, repl, string, *args, **kwargs):
         return self.re.sub(regrouped(repl), string, *args, **kwargs)
-    
+
     def subn(self, repl, *args, **kwargs):
         return self.re.subn(regrouped(repl), string, *args, **kwargs)
-    
+
     def escape(self, *args, **kwargs):
-        return self.re.escape(*args, **kwargs)        
-  
+        return self.re.escape(*args, **kwargs)
+
 
 class Glob(with_metaclass(MementoMetaclass, object)):
+
     """
     An item matches a Glob via Unix filesystem glob semantics.
-    
+
     E.g. 'alpha' matches 'a*' and 'a????' but not 'b*'
+
     """
 
-    def __init__(self, pattern):
-        self.pattern = pattern
-        
+    def __init__(self, *patterns):
+        self.patterns = patterns
+
     def __contains__(self, item):
-        return fnmatch.fnmatch(str(item), self.pattern)
+        item = stringify(item)
+        for p in self.patterns:
+            if fnmatch(item, p):
+                return p
+        return False
+
+    contains = __contains__
+
+
+class InsensitiveGlob(Glob):
+
+    """
+    A Glob object, but case insensitive.
+    """
+
+    def __init__(self, *patterns):
+        self.patterns = [casefold(p) for p in patterns]
+
+    def __contains__(self, item):
+        item = casefold(stringify(item))
+        for p in self.patterns:
+            if fnmatch(item, p):
+                return p
+        return False

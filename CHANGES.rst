@@ -1,4 +1,11 @@
 
+1.1.0
+=====
+
+  * Added multi-pattern and case insensive Glob sublcass.
+    Added wheel packaging. Rearranged and extended testing structure.
+    Updated setup and docs.
+
 1.0.10
 ======
 

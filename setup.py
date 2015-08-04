@@ -6,16 +6,20 @@ import sys
 
 
 class Tox(TestCommand):
+
     user_options = [('tox-args=', 'a', "Arguments to pass to tox")]
+
     def initialize_options(self):
         TestCommand.initialize_options(self)
         self.tox_args = None
+
     def finalize_options(self):
         TestCommand.finalize_options(self)
         self.test_args = []
         self.test_suite = True
+
     def run_tests(self):
-        #import here, cause outside the eggs aren't loaded
+        # import here, cause outside the eggs aren't loaded
         import tox
         import shlex
         args = self.tox_args
@@ -26,11 +30,13 @@ class Tox(TestCommand):
 
 _PY3 = sys.version_info[0] == 3
 
+
 def linelist(text):
     """
     Returns each non-blank line in text enclosed in a list.
     """
     return [l.strip() for l in text.strip().splitlines() if l.split()]
+
 
 def getmetadata(filepath):
     """
@@ -59,9 +65,9 @@ setup(
     license='Apache License 2.0',
     packages=['simplere'],
     install_requires=['mementos'],
-    tests_require = ['tox', 'pytest'],
+    tests_require=['tox', 'pytest', 'six'],
     test_suite="test",
-    cmdclass = {'test': Tox},
+    cmdclass={'test': Tox},
     zip_safe = False,  # actually it is, but this apparently avoids setuptools hacks
     keywords='re regex regexp regular expression glob simple',
     classifiers=linelist("""

@@ -2,12 +2,15 @@
 from simplere import *
 import re
 
-class YesItIs(ValueError): pass
+
+class YesItIs(ValueError):
+    pass
+
 
 def test_basic():
     tests = 'some string with things in it ok?'
 
-    sword  = Re(r'\b(s\w*)\b')
+    sword = Re(r'\b(s\w*)\b')
 
     if tests in sword:
         assert Re._[1] == 'some'
@@ -20,27 +23,29 @@ def test_basic():
     assert 'it goes other ways' not in sword
     assert 'it goes other ways sometimes' in sword
 
+
 def test_findall():
     tests = 'some string with things in it ok?'
 
-    sword  = Re(r'\b(s\w*)\b')
+    sword = Re(r'\b(s\w*)\b')
 
     assert sword.findall(tests) == ['some', 'string']
 
-    iterlist = [ m[1] for m in sword.finditer(tests) ]
+    iterlist = [m[1] for m in sword.finditer(tests)]
     assert iterlist == ['some', 'string']
+
 
 def test_attributes():
 
     tests = 'some string with things in it ok?'
-    sword  = Re(r'\b(?P<word>s\w*)\b')
+    sword = Re(r'\b(?P<word>s\w*)\b')
 
     if tests in sword:
         assert Re._.word == 'some'
     else:
         raise YesItIs()
 
-    iterlist = [ m.word for m in sword.finditer(tests) ]
+    iterlist = [m.word for m in sword.finditer(tests)]
     assert iterlist == ['some', 'string']
 
     person = 'John Smith 48'
@@ -48,23 +53,24 @@ def test_attributes():
         assert Re._.name == 'John Smith'
         assert int(Re._.age) == 48
         assert Re._.name == Re._._match.group('name')
-        assert Re._.age  == Re._._match.group('age')
+        assert Re._.age == Re._._match.group('age')
     else:
         raise YesItIs()
 
     for found in Re(r'pattern (\w+)').finditer('pattern is as pattern does'):
         assert isinstance(found, ReMatch)
-        assert found[1] in ['is','does']
+        assert found[1] in ['is', 'does']
 
     found = Re(r'pattern (\w+)').findall('pattern is as pattern does')
     assert found == 'is does'.split()
+
 
 def test_regrouping():
     sentence = "you've been a bad boy"
     pattern = r'(?P<word>bad)'
     re_pat = Re(pattern)
 
-    repl = lambda m: m.word.upper() # note use of attributes
+    repl = lambda m: m.word.upper()  # note use of attributes
 
     newsent = re_pat.sub(repl, sentence)
     assert newsent == "you've been a BAD boy"
@@ -76,11 +82,10 @@ def test_regrouping():
 
 
 def test_memoization():
-    testpat  = Re(r'\b(s\w*)\b')
+    testpat = Re(r'\b(s\w*)\b')
     testpat1 = Re(r'\b(s\w*)\b')
     assert testpat is testpat1   # test memoization
 
-    assert Glob('a*') is Glob('a*')
 
 def test_from_sre():
     pat = re.compile(r'\b(s\w*)\b')
@@ -91,6 +96,7 @@ def test_from_sre():
     assert repat.findall(tests) == ['some', 'string']
 
     assert 'ddd' not in repat
+
 
 def test_direct_ReMatch():
 
@@ -114,10 +120,11 @@ def test_direct_ReMatch_easy_access():
     assert match[1] == match.word
     assert match.group(1) == match.word
 
+
 def test_en_passant_Match():
     s = 'this is the test of that thing you like'
 
-    match  = Match()
+    match = Match()
 
     if match / re.search(r'th\w*', s):
         assert match[0] == 'this'
@@ -163,10 +170,3 @@ def test_en_passant_with_Re():
 
     if match / Re(r'thi\w+').search(s):
         assert match[0] == 'this'
-
-
-def test_Glob():
-    assert "alpha" in Glob("a*")
-    assert "beta" not in Glob("a*")
-
-    assert 'globtastic' in Glob('glob*')

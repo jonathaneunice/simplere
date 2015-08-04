@@ -63,13 +63,20 @@ As a bonus,
     else:
         raise ValueError('OH YES IT IS!')
 
+It can also conveniently match against multiple glob
+patterns, and/or do case-insensitive glob searches.
+
 See `Read the Docs <http://simplere.readthedocs.org/en/latest/>`_
 for the full installation and usage documentation.
 
 Notes
 =====
 
- *  See ``CHANGES.rst`` for a historical view of changes.
+ *  Version 1.1 adds multi-pattern and case insensitive Glob sublcass.
+    Added wheel packaging. Rearranged and extended testing structure.
+    Updated setup and docs.
+
+ *  See ``CHANGES.rst`` for a fuller historical view of changes.
 
  *  Automated multi-version testing managed with `pytest
     <http://pypi.python.org/pypi/pytest>`_ and `tox
