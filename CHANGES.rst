@@ -1,4 +1,10 @@
 
+
+1.1.1
+=====
+
+  * Simplified ``setup.py`` and packaging. Tweaked docs.
+
 1.1.0
 =====
 
