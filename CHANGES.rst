@@ -1,16 +1,23 @@
 
+1.2 (August 14, 2015)
+=====================
 
-1.1.1
-=====
+  * Realized imports were overly restrictive, requiring clients of module
+    to needlessly (and contra docs) manually import ``re`` and construct
+    the ``match`` object.  Fixed.  Bumped minor version number to reflect
+    *de facto* API change.
+
+1.1.1 (August 14, 2015)
+=======================
 
   * Simplified ``setup.py`` and packaging. Tweaked docs.
 
 1.1.0
 =====
 
-  * Added multi-pattern and case insensive Glob sublcass.
-    Added wheel packaging. Rearranged and extended testing structure.
-    Updated setup and docs.
+* Adds multi-pattern and case insensitive Glob subclass.
+  Added wheel packaging. Rearranged and extended testing structure.
+  Updated setup and docs.
 
 1.0.10
 ======

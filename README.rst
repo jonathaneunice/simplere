@@ -71,26 +71,32 @@ for the full installation and usage documentation.
 Notes
 =====
 
- *  Version 1.1 adds multi-pattern and case insensitive Glob subclass.
-    Added wheel packaging. Rearranged and extended testing structure.
-    Updated setup and docs.
+* Version 1.2 extends auto-imported symbols. Previously
+  overly restrictive, requiring clients of module
+  to needlessly (and contra docs) manually import ``re`` and construct
+  the ``match`` object.  Fixed.  Bumped minor version number to reflect
+  *de facto* API change.
 
- *  See ``CHANGES.rst`` for a fuller historical view of changes.
+* Version 1.1 adds multi-pattern and case insensitive Glob subclass.
+  Added wheel packaging. Rearranged and extended testing structure.
+  Updated setup and docs.
 
- *  Automated multi-version testing managed with `pytest
-    <http://pypi.python.org/pypi/pytest>`_ and `tox
-    <http://pypi.python.org/pypi/tox>`_. Continuous integration testing
-    with `Travis-CI <https://travis-ci.org/jonathaneunice/intspan>`_.
-    Packaging linting with `pyroma <https://pypi.python.org/pypi/pyroma>`_.
+* See ``CHANGES.rst`` for a fuller historical view of changes.
 
-    Successfully packaged for, and
-    tested against, all late-model versions of Python: 2.6, 2.7, 3.2, 3.3,
-    3.4, and 3.5 pre-release (3.5.0b3) as well as PyPy 2.6.0 (based on
-    2.7.9) and PyPy3 2.4.0 (based on 3.2.5).
+* Automated multi-version testing managed with `pytest
+  <http://pypi.python.org/pypi/pytest>`_ and `tox
+  <http://pypi.python.org/pypi/tox>`_. Continuous integration testing
+  with `Travis-CI <https://travis-ci.org/jonathaneunice/intspan>`_.
+  Packaging linting with `pyroma <https://pypi.python.org/pypi/pyroma>`_.
 
- *  The author, `Jonathan Eunice <mailto:jonathan.eunice@gmail.com>`_ or
-    `@jeunice on Twitter <http://twitter.com/jeunice>`_
-    welcomes your comments and suggestions.
+  Successfully packaged for, and
+  tested against, all late-model versions of Python: 2.6, 2.7, 3.2, 3.3,
+  3.4, and 3.5 pre-release (3.5.0b3) as well as PyPy 2.6.0 (based on
+  2.7.9) and PyPy3 2.4.0 (based on 3.2.5).
+
+* The author, `Jonathan Eunice <mailto:jonathan.eunice@gmail.com>`_ or
+  `@jeunice on Twitter <http://twitter.com/jeunice>`_
+  welcomes your comments and suggestions.
 
 
 Installation

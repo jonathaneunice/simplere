@@ -1,6 +1,5 @@
 
 from simplere import *
-import re
 
 
 class YesItIs(ValueError):
