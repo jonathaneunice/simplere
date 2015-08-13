@@ -25,10 +25,9 @@
     :alt: Wheel packaging support
     :target: https://pypi.python.org/pypi/simplere
 
-A simplified interface to Python's regular expression (``re``)
-string search. Eliminates steps and provides
-simpler access to results. As a bonus, also provides compatible way to
-access Unix glob searches.
+A simplified interface to Python's regular expression (``re``) string
+search. Eliminates steps and provides simpler access to results. As a bonus,
+also provides compatible way to access Unix glob searches.
 
 Usage
 =====
@@ -72,7 +71,7 @@ for the full installation and usage documentation.
 Notes
 =====
 
- *  Version 1.1 adds multi-pattern and case insensitive Glob sublcass.
+ *  Version 1.1 adds multi-pattern and case insensitive Glob subclass.
     Added wheel packaging. Rearranged and extended testing structure.
     Updated setup and docs.
 

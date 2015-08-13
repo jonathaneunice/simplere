@@ -226,10 +226,11 @@ version as the main one::
 
     from simplere import InsensitiveGlob as Glob
 
-.. note:: Case folding / case-insensitive searchs work well in the
+.. note:: Case folding / case-insensitive searches work well in the
     ASCII range, but Unicode characters and case folding is more
     intricate. Basic folding is provided out of the box. It's quite
-    adequate for mapping against filename patterns and scuh. Those
+    adequate for mapping against common
+    filename patterns, for example. Those
     needing more extensive Unicode case folding should consider
     normalizing strings, `as described here
     <http://stackoverflow.com/a/29247821/240490>`_. As the tests
