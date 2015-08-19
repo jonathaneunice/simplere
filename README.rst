@@ -76,6 +76,9 @@ for the full installation and usage documentation.
 Notes
 =====
 
+* Version 1.2.5 added automated measurement of test coverage. Line coverage
+  started at 92%. Bumped to 97%.
+
 * Version 1.2 extends auto-imported symbols. Previously
   overly restrictive, requiring clients of module
   to needlessly (and contra docs) manually import ``re`` and construct

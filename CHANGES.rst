@@ -3,7 +3,7 @@
 1.2.5 (August 19, 2015)
 =======================
 
-  * Added automated measurement of test coverage. Line overage started
+  * Added automated measurement of test coverage. Line coverage started
     at 92%. Bumped to 97%.
 
 1.2 (August 14, 2015)
