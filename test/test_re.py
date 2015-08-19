@@ -1,5 +1,7 @@
 
 from simplere import *
+from simplere.core import regrouped
+import pytest
 
 
 class YesItIs(ValueError):
@@ -21,6 +23,23 @@ def test_basic():
     assert 'ddd' not in sword
     assert 'it goes other ways' not in sword
     assert 'it goes other ways sometimes' in sword
+
+
+def test_auto_stringify():
+    num = Re(r'^\d+')
+    assert 0 in num
+    assert 101 in num
+    assert -3 not in num
+    assert "sword" not in num
+
+
+def test_match():
+    num = Re(r'^\d+')
+    assert num.match('0')
+    assert num.match('101')
+    assert not num.match('x101')
+    assert not num.match('-3')
+    assert not num.match("sword")
 
 
 def test_findall():
@@ -53,6 +72,9 @@ def test_attributes():
         assert int(Re._.age) == 48
         assert Re._.name == Re._._match.group('name')
         assert Re._.age == Re._._match.group('age')
+
+        with pytest.raises(AttributeError):
+            Re._.taste
     else:
         raise YesItIs()
 
@@ -80,6 +102,11 @@ def test_regrouping():
     assert sentcap.sub(sentcap_repl, newsent) == "You've been a BAD boy"
 
 
+def test_broken_regrouping():
+    # make sure there's coverage of one odd immediate-return case
+    assert regrouped(44) == 44
+
+
 def test_memoization():
     testpat = Re(r'\b(s\w*)\b')
     testpat1 = Re(r'\b(s\w*)\b')
@@ -95,6 +122,7 @@ def test_from_sre():
     assert repat.findall(tests) == ['some', 'string']
 
     assert 'ddd' not in repat
+
 
 
 def test_direct_ReMatch():

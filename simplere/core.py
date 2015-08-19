@@ -72,19 +72,17 @@ class ReMatch(object):
     def __getattr__(self, name):
         if self._match is None:
             raise AttributeError(
-                "Empty match has no such attribute '{}'".format(name))
+                "Empty match has no such attribute '{0}'".format(name))
 
         if self._groupdict is None:
             self._groupdict = self._match.groupdict()
 
-        if name in self.__dict__:
-            return self.__dict__[name]
         if name in self._groupdict:
             return self._groupdict[name]
         try:
             return getattr(self._match, name)
         except AttributeError:
-            raise AttributeError("no such attribute '{}'".format(name))
+            raise AttributeError("no such attribute '{0}'".format(name))
 
     def __getitem__(self, index):
         return self._match.group(index)
@@ -106,15 +104,6 @@ class ReMatch(object):
 
 Match = ReMatch     # define alias
 match = Match()     # instantiate global match instance
-
-function_type = type(lambda: True)   # define our own because not def'd in py26
-
-
-def is_function(obj):
-    """
-    Determines: Is obj a function?
-    """
-    return isinstance(obj, function_type)
 
 
 def regrouped(f):
@@ -172,8 +161,7 @@ class Re(with_metaclass(MementoMetaclass, object)):
         return result
 
     def __contains__(self, item):
-        if not isinstance(item, basestring):
-             item = str(item)
+        item = stringify(item)
         return self._regroup(self.re.search(item))
 
     ### methods that return ReMatch objects

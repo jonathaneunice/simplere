@@ -2,6 +2,7 @@
 .tox/
 */__pycache__
 *.pyc
+.coverage
 build/
 dist/
 docs/_build/

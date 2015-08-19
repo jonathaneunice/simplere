@@ -7,13 +7,13 @@ from codecs import open
 def lines(text):
     """
     Returns each non-blank line in text enclosed in a list.
+    See http://pypi.python.org/pypi/textdata for more sophisticated version.
     """
-    return [l.strip() for l in text.strip().splitlines() if l.split()]
-
+    return [l.strip() for l in text.strip().splitlines() if l.strip()]
 
 setup(
     name='simplere',
-    version='1.2.0',
+    version='1.2.4',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='Simpler, cleaner access to regular expressions. Globs too.',
@@ -21,8 +21,9 @@ setup(
     url='https://bitbucket.org/jeunice/simplere',
     license='Apache License 2.0',
     packages=['simplere'],
+    setup_requires=[],
     install_requires=['mementos'],
-    tests_require=['tox', 'pytest', 'six'],
+    tests_require=['tox', 'pytest', 'pytest-cov', 'coverage', 'six'],
     test_suite="test",
     zip_safe = False,  # actually it is, but this apparently avoids setuptools hacks
     keywords='re regex regexp regular expression glob simple',

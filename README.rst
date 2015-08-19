@@ -1,5 +1,5 @@
 
-| |travisci| |version| |downloads| |supported-versions| |supported-implementations| |wheel|
+| |travisci| |version| |downloads| |versions| |impls| |wheel| |coverage|
 
 .. |travisci| image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=master
     :alt: Travis CI build status
@@ -13,17 +13,22 @@
     :alt: PyPI Package monthly downloads
     :target: https://pypi.python.org/pypi/simplere
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/simplere.svg
+.. |versions| image:: https://img.shields.io/pypi/pyversions/simplere.svg
     :alt: Supported versions
     :target: https://pypi.python.org/pypi/simplere
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/simplere.svg
+.. |impls| image:: https://img.shields.io/pypi/implementation/simplere.svg
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/simplere
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/simplere.svg
     :alt: Wheel packaging support
     :target: https://pypi.python.org/pypi/simplere
+
+.. |coverage| image:: https://img.shields.io/badge/test_coverage-97%25-blue.svg
+    :alt: Test line coverage
+    :target: https://pypi.python.org/pypi/simplere
+
 
 A simplified interface to Python's regular expression (``re``) string
 search. Eliminates steps and provides simpler access to results. As a bonus,
