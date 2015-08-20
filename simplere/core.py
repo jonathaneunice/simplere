@@ -187,11 +187,12 @@ class Re(with_metaclass(MementoMetaclass, object)):
     def sub(self, repl, string, *args, **kwargs):
         return self.re.sub(regrouped(repl), string, *args, **kwargs)
 
-    def subn(self, repl, *args, **kwargs):
+    def subn(self, repl, string, *args, **kwargs):
         return self.re.subn(regrouped(repl), string, *args, **kwargs)
 
-    def escape(self, *args, **kwargs):
-        return self.re.escape(*args, **kwargs)
+    @classmethod
+    def escape(cls, *args, **kwargs):
+        return re.escape(*args, **kwargs)
 
 
 class Glob(with_metaclass(MementoMetaclass, object)):

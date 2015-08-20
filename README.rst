@@ -25,7 +25,7 @@
     :alt: Wheel packaging support
     :target: https://pypi.python.org/pypi/simplere
 
-.. |coverage| image:: https://img.shields.io/badge/test_coverage-97%25-blue.svg
+.. |coverage| image:: https://img.shields.io/badge/test_coverage-100\%25-6600CC.svg
     :alt: Test line coverage
     :target: https://pypi.python.org/pypi/simplere
 
@@ -75,6 +75,8 @@ for the full installation and usage documentation.
 
 Notes
 =====
+
+* Version 1.2.6 bumps test coverage to 100%.
 
 * Version 1.2.5 added automated measurement of test coverage. Line coverage
   started at 92%. Bumped to 97%.

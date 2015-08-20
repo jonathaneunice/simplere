@@ -42,6 +42,28 @@ def test_match():
     assert not num.match("sword")
 
 
+def test_sub():
+    s = 'and this is this but also THIS'
+    s1 = Re('this', re.I).sub('***', s)
+    assert s1 == 'and *** is *** but also ***'
+
+
+def test_subn():
+    s = 'and this is this but also THIS'
+    ans = Re('this', re.I).subn('***', s)
+    assert ans == ('and *** is *** but also ***', 3)
+
+
+def test_split():
+    s = 'and this is this but also THIS'
+    ans = Re('\s*this\s*', re.I).split(s)
+    assert ans == ['and', 'is', 'but also', '']
+
+
+def test_escape():
+    assert Re.escape(r'\[()[') == '\\\\\\[\\(\\)\\['
+
+
 def test_findall():
     tests = 'some string with things in it ok?'
 
@@ -122,7 +144,6 @@ def test_from_sre():
     assert repat.findall(tests) == ['some', 'string']
 
     assert 'ddd' not in repat
-
 
 
 def test_direct_ReMatch():
