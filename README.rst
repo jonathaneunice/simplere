@@ -25,7 +25,7 @@
     :alt: Wheel packaging support
     :target: https://pypi.python.org/pypi/simplere
 
-.. |coverage| image:: https://img.shields.io/badge/test_coverage-100\%25-6600CC.svg
+.. |coverage| image:: https://img.shields.io/badge/test_coverage-100%25-6600CC.svg
     :alt: Test line coverage
     :target: https://pypi.python.org/pypi/simplere
 
