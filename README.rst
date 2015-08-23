@@ -1,11 +1,11 @@
 
-| |travisci| |version| |downloads| |versions| |impls| |wheel| |coverage|
+| |travisci| |version| |downloads| |versions| |impls| |wheel| |coverage| |br-coverage|
 
-.. |travisci| image:: https://travis-ci.org/jonathaneunice/simplere.png?branch=master
+.. |travisci| image:: https://travis-ci.org/jonathaneunice/simplere.svg?branch=master
     :alt: Travis CI build status
     :target: https://travis-ci.org/jonathaneunice/simplere
 
-.. |version| image:: http://img.shields.io/pypi/v/simplere.png?style=flat
+.. |version| image:: http://img.shields.io/pypi/v/simplere.svg?style=flat
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/simplere
 
@@ -29,6 +29,9 @@
     :alt: Test line coverage
     :target: https://pypi.python.org/pypi/simplere
 
+.. |br-coverage| image:: https://img.shields.io/badge/test_coverage-100%25-6600CC.svg
+    :alt: Test branch coverage
+    :target: https://pypi.python.org/pypi/simplere
 
 A simplified interface to Python's regular expression (``re``) string
 search. Eliminates steps and provides simpler access to results. As a bonus,
@@ -75,6 +78,9 @@ for the full installation and usage documentation.
 
 Notes
 =====
+
+* Version 1.2.7 starts automated measurement of test branch coverage.
+  Inital runs show 100% branch coverage. *Hooah!*
 
 * Version 1.2.6 bumps test coverage to 100%.
 
