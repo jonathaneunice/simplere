@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+**1.2.8**  (August 26, 2015)
+
+    Substantial documentation reorg.
+
+
 **1.2.7**  (August 23, 2015)
 
     Starts automated measurement of test branch coverage. Inital runs
