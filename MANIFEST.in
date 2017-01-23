@@ -7,3 +7,4 @@ recursive-include simplere *.py
 recursive-include test *.py
 include .travis.yml
 recursive-include docs *.rst *.conf
+
