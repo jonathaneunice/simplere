@@ -4,7 +4,8 @@ Change Log
 **1.2.9**  (January 23, 2017)
 
     Updates testing. Newly qualified under 2.7.13 and 3.6, as well as
-    most recent builds of pypy and pypy3.
+    most recent builds of pypy and pypy3. Python 3.2 support withdrawn
+    given obsolescence.
 
 
 **1.2.8**  (August 26, 2015)
