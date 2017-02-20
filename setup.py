@@ -13,7 +13,7 @@ def lines(text):
 
 setup(
     name='simplere',
-    version='1.2.9',
+    version='1.2.10',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='Simpler, cleaner access to regular expressions. Globs too.',
@@ -22,13 +22,13 @@ setup(
     license='Apache License 2.0',
     packages=['simplere'],
     setup_requires=[],
-    install_requires=['mementos'],
+    install_requires=['mementos>=1.2.0'],
     tests_require=['tox', 'pytest', 'pytest-cov', 'coverage', 'six'],
     test_suite="test",
     zip_safe = False,  # actually it is, but this apparently avoids setuptools hacks
     keywords='re regex regexp regular expression glob simple',
     classifiers=lines("""
-        Development Status :: 4 - Beta
+        Development Status :: 5 - Production
         Operating System :: OS Independent
         License :: OSI Approved :: Apache Software License
         Intended Audience :: Developers

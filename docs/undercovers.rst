@@ -12,7 +12,7 @@ method calls return).::
         print match[1]          # same thing
         print match.word        # same thing, with logical name
 
-But that's a huge amount of boiler plate for a simple test, right? So ``simplere``
+But that's a lot of boilerplate for a simple test, right? So ``simplere``
 *en passant* operator redefining the division operation and proxies the ``re`` result
 on the fly to the pre-defined ``match`` object::
 
@@ -23,4 +23,3 @@ on the fly to the pre-defined ``match`` object::
 
 If the ``re`` operation fails, the resulting object is guaranteed to have
 a ``False``-like Boolean value, so that it will fall through conditional tests.
-

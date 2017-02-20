@@ -1,4 +1,11 @@
 -
+    version: 1.2.10
+    date: February 17, 2017
+    notes: >
+        Updates testing.  Python 3.2 support re-established, given
+        still supported on Travis CI. Docs tweaked.
+
+-
     version: 1.2.9
     date: January 23, 2017
     notes: >

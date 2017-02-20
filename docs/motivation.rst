@@ -21,5 +21,3 @@ This is even more true for the "exploratory" phases of development,
 before a program's appropriate structure and best logical boundaries
 have been established.  One can always "back out" the condensing *en
 passant* operation in later production code, if desired.
-
-

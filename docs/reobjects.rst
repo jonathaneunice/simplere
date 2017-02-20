@@ -57,4 +57,3 @@ Or collect them all in one fell swoop::
 
 Pretty much all of the methods and properties one can access from the standard
 ``re`` module are available.
-

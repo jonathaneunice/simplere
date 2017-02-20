@@ -20,4 +20,3 @@ With ``simplere``, you can do it in fewer steps::
 
 In addition to its own classes, ``from simplere import *`` imports both
 the standard ``re`` module and the ``match`` object so you don't have to.
-

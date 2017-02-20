@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+**1.2.10**  (February 17, 2017)
+
+    Updates testing.  Python 3.2 support re-established, given still
+    supported on Travis CI. Docs tweaked.
+
+
 **1.2.9**  (January 23, 2017)
 
     Updates testing. Newly qualified under 2.7.13 and 3.6, as well as

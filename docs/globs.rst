@@ -19,7 +19,7 @@ patterns matching.::
     if filename.lower() in img_formats:
         ... further processing ...
 
-Alternatively, you can splay an existing list into the ``Glob``
+Alternatively, you can splat an existing list into the ``Glob``
 constructor with Python's unary star syntax::
 
     img_formats = "*.png *.jpeg *.jpg *.gif".split()
@@ -51,4 +51,3 @@ version as the main one::
     show, basic Unicode folding works fine everywhere. Using
     Unicode in glob patterns (not just strings to be matched)
     works *only* on Python 3.3 or above.
-
