@@ -13,7 +13,7 @@ def lines(text):
 
 setup(
     name='simplere',
-    version='1.2.10',
+    version='1.2.11',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='Simpler, cleaner access to regular expressions. Globs too.',

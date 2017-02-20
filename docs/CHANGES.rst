@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+**1.2.11**  (February 17, 2017)
+
+    Updates testing. Again.  Python 3.2 support again dropped, for the
+    last time, given failure on Travis CI. It's old, anyway. Time to
+    upgrade!
+
+
 **1.2.10**  (February 17, 2017)
 
     Updates testing.  Python 3.2 support re-established, given still
