@@ -28,7 +28,7 @@ setup(
     zip_safe = False,  # actually it is, but this apparently avoids setuptools hacks
     keywords='re regex regexp regular expression glob simple',
     classifiers=lines("""
-        Development Status :: 5 - Production
+        Development Status :: 5 - Production/Stable
         Operating System :: OS Independent
         License :: OSI Approved :: Apache Software License
         Intended Audience :: Developers
@@ -37,7 +37,6 @@ setup(
         Programming Language :: Python :: 2.6
         Programming Language :: Python :: 2.7
         Programming Language :: Python :: 3
-        Programming Language :: Python :: 3.2
         Programming Language :: Python :: 3.3
         Programming Language :: Python :: 3.4
         Programming Language :: Python :: 3.5
