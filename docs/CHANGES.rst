@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+**1.2.12**  (May 31, 2017)
+
+    Updated Python 2 / 3 compatibility strategy to be Python 3
+    centric. Should be more future-proofed.
+
+    Updated testing.
+
+
 **1.2.11**  (February 17, 2017)
 
     Updates testing. Again.  Python 3.2 support again dropped, for the

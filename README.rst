@@ -1,5 +1,5 @@
 
-| |travisci| |version| |downloads| |versions| |impls| |wheel| |coverage| |br-coverage|
+| |travisci| |version| |versions| |impls| |wheel| |coverage| |br-coverage|
 
 .. |travisci| image:: https://travis-ci.org/jonathaneunice/simplere.svg?branch=master
     :alt: Travis CI build status
@@ -7,10 +7,6 @@
 
 .. |version| image:: http://img.shields.io/pypi/v/simplere.svg?style=flat
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/simplere
-
-.. |downloads| image:: http://img.shields.io/pypi/dm/simplere.png?style=flat
-    :alt: PyPI Package monthly downloads
     :target: https://pypi.python.org/pypi/simplere
 
 .. |versions| image:: https://img.shields.io/pypi/pyversions/simplere.svg
