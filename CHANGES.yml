@@ -1,4 +1,14 @@
 -
+    version: 1.2.12
+    date: May 31, 2017
+    notes: >
+        Updated Python 2 / 3 compatibility strategy to be Python 3 centric.
+        Should be more future-proofed.
+        
+        Updated testing.
+
+
+-
     version: 1.2.11
     date: February 17, 2017
     notes: >

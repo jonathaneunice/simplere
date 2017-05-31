@@ -9,16 +9,16 @@ import re
 from fnmatch import fnmatch
 
 
-_PY3 = sys.version_info[0] == 3
+_PY2 = sys.version_info[0] == 2
 
-if _PY3:
+if not _PY2:
     basestring = unicode = str
 
 if sys.version_info[:2] < (3, 3):
     def casefold(s):
         return s.upper().lower()
         # imperfect, but better than the simpler, more typical
-        # s.lower() with some Unicode charactrs
+        # s.lower() with some Unicode characters
 else:
     def casefold(s):
         return s.casefold()
@@ -27,7 +27,7 @@ else:
 def stringify(x):
     return x if isinstance(x, basestring) else unicode(x)
     # Dance around Python 2 and 3 differences, esp. str/unicode
-    # divide in py2. Note ``basetring`` and ``unicode`` are above
+    # divide in py2. Note ``basestring`` and ``unicode`` are above
     # defined to be ``str`` in py3
 
 
@@ -64,10 +64,10 @@ class ReMatch(object):
         """
         return bool(self._match)
 
-    if _PY3:
-        __bool__ = _bool
-    else:
+    if _PY2:
         __nonzero__ = _bool
+    else:
+        __bool__ = _bool
 
     def __getattr__(self, name):
         if self._match is None:
@@ -87,7 +87,7 @@ class ReMatch(object):
     def __getitem__(self, index):
         return self._match.group(index)
 
-    def __div__(self, other):
+    def __truediv__(self, other):
         """
         Define the div (/) operation for en passant usage.
         """
@@ -95,8 +95,8 @@ class ReMatch(object):
         self._groupdict = None
         return other
 
-    if _PY3:
-        __truediv__ = __div__
+    if _PY2:
+        __div__ = __truediv__
 
     __lt__ = __div__
     __le__ = __div__

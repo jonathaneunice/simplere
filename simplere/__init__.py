@@ -1,2 +1,3 @@
 from .core import re, match, Re, Match, ReMatch, Glob, InsensitiveGlob
-from .version import __version__
+
+__version__ = '1.2.12'

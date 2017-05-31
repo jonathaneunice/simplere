@@ -1,2 +1,2 @@
-mementos>=1.2.6
+mementos>=1.2.8
 six>=1.10.0

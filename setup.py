@@ -13,7 +13,7 @@ def lines(text):
 
 setup(
     name='simplere',
-    version='1.2.11',
+    version='1.2.12',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='Simpler, cleaner access to regular expressions. Globs too.',
@@ -22,7 +22,7 @@ setup(
     license='Apache License 2.0',
     packages=['simplere'],
     setup_requires=[],
-    install_requires=['mementos>=1.2.0'],
+    install_requires=['mementos>=1.2.8'],
     tests_require=['tox', 'pytest', 'pytest-cov', 'coverage', 'six'],
     test_suite="test",
     zip_safe = False,  # actually it is, but this apparently avoids setuptools hacks
