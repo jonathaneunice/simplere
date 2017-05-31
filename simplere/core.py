@@ -87,7 +87,7 @@ class ReMatch(object):
     def __getitem__(self, index):
         return self._match.group(index)
 
-    def __truediv__(self, other):
+    def _div(self, other):
         """
         Define the div (/) operation for en passant usage.
         """
@@ -96,10 +96,12 @@ class ReMatch(object):
         return other
 
     if _PY2:
-        __div__ = __truediv__
+        __div__ = _div
+    else:
+        __truediv__ = _div
 
-    __lt__ = __div__
-    __le__ = __div__
+    __lt__ = _div
+    __le__ = _div
 
 
 Match = ReMatch     # define alias
