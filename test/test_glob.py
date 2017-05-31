@@ -6,7 +6,7 @@ import six
 import pytest
 import sys
 
-_PY33ORGREATER = sys.version_info[:2] >= (3, 3)
+_STRHASCASEFOLD = hasattr(str, 'casefold')
 
 
 class YesItIs(ValueError):
@@ -62,7 +62,7 @@ def test_InsensitiveGlob():
     assert six.u("BU\u1E9EE") in g # LATIN CAPITAL LETTER SHARP S
     assert six.u("BU\u00DFE") in g # LATIN SMALL LETTER SHARP S
 
-@pytest.mark.skipif(not _PY33ORGREATER, reason="Unicode is hard")
+@pytest.mark.skipif(not _STRHASCASEFOLD, reason="Unicode is hard")
 def test_InsensitiveGlob_harder():
     ug = InsensitiveGlob(six.u("BUSSE"))
     ugg = InsensitiveGlob(six.u("BU\u1E9EE"))  # LATIN CAPITAL LETTER SHARP S
