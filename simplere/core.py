@@ -14,14 +14,16 @@ _PY2 = sys.version_info[0] == 2
 if not _PY2:
     basestring = unicode = str
 
-if sys.version_info[:2] < (3, 3):
+if hasattr(str, 'casefold'):
+    # should be Python 3.3 forward
+    def casefold(s):
+        return s.casefold()
+else:
     def casefold(s):
         return s.upper().lower()
         # imperfect, but better than the simpler, more typical
         # s.lower() with some Unicode characters
-else:
-    def casefold(s):
-        return s.casefold()
+
 
 
 def stringify(x):
